@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peluquería y Barbería by jorgequiromasajista</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #222;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #d4af37;
+            margin: 10px auto;
+        }
+
+        /* Header y Navegación */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: #111;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Captura de pantalla 2025-10-22 155206.png') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #d4af37;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #b8941f;
+            transform: translateY(-3px);
+        }
+
+        /* Sobre Nosotros */
+        .about {
+            background-color: #fff;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+
+        .services-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .service-icon {
+            text-align: center;
+            margin: 15px;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .service-icon i {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .service-icon h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Reservas */
+        .reservations {
+            background-color: #f5f5f5;
+        }
+
+        .reservation-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #d4af37;
+            outline: none;
+        }
+
+        /* Contacto */
+        .contact {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #25D366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        /* Galería */
+        .gallery {
+            background-color: #fff;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 300px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Horario */
+        .hours {
+            background-color: #f5f5f5;
+        }
+
+        .hours-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 600;
+        }
+
+        /* Ubicación */
+        .location {
+            background-color: #fff;
+        }
+
+        .location-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .location-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .location-info p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .location-info i {
+            color: #d4af37;
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .map {
+            flex: 2;
+            min-width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+
+        .footer-column p, .footer-column a {
+            color: #bbb;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #d4af37;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #d4af37;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: #111;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Peluquería <span>& Barbería</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#reservations">Reservas</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                    <li><a href="#gallery">Galería</a></li>
+                    <li><a href="#hours">Horario</a></li>
+                    <li><a href="#location">Ubicación</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Peluquería y Barbería by jorgequiromasajista</h1>
+            <p>Tu estilo, nuestra pasión. Servicios profesionales de peluquería y barbería en Vila-seca.</p>
+            <a href="#reservations" class="btn">Reserva tu cita</a>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Sobre Nosotros</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>En <strong>Peluquería y Barbería by jorgequiromasajista</strong>, nos dedicamos a realzar tu belleza natural y a brindarte un servicio excepcional. Nuestro equipo de profesionales altamente capacitados está comprometido con ofrecerte los mejores cortes, peinados y tratamientos capilares.</p>
+                    <p>Con años de experiencia en el sector, hemos creado un espacio acogedor donde nuestros clientes pueden relajarse y disfrutar de una experiencia única. Utilizamos productos de alta calidad y las últimas técnicas para garantizar resultados que superen tus expectativas.</p>
+                    <p>Ya sea que busques un corte clásico, un estilo moderno o un tratamiento especial, estamos aquí para ayudarte a lucir y sentirte mejor.</p>
+                    
+                    <div class="services-icons">
+                        <div class="service-icon">
+                            <i class="fas fa-cut"></i>
+                            <h3>Cortes Modernos</h3>
+                            <p>Estilos actualizados</p>
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-air-freshener"></i>
+                            <h3>Tratamientos</h3>
+                            <p>Para tu cabello</p>
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-user-tie"></i>
+                            <h3>Barbería</h3>
+                            <p>Estilo clásico</p>
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                            <h3>Coloración</h3>
+                            <p>Tintes profesionales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservas -->
+    <section class="reservations" id="reservations">
+        <div class="container">
+            <h2>Reserva tu Cita</h2>
+            <div class="reservation-form">
+                <form id="booking-form">
+                    <div class="form-group">
+                        <label for="name">Nombre completo</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Fecha</label>
+                        <input type="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Hora</label>
+                        <input type="time" id="time" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Servicio</label>
+                        <select id="service" class="form-control" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="corte_hombre">Corte de cabello (Hombre)</option>
+                            <option value="corte_mujer">Corte de cabello (Mujer)</option>
+                            <option value="barba">Arreglo de barba</option>
+                            <option value="tinte">Tinte</option>
+                            <option value="peinado">Peinado especial</option>
+                            <option value="tratamiento">Tratamiento capilar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje adicional (opcional)</label>
+                        <textarea id="message" class="form-control" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Reservar cita</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contacto Directo</h2>
+            <div class="contact-content">
+                <p>¿Tienes alguna pregunta o necesitas asistencia inmediata? Contáctanos directamente por WhatsApp y te atenderemos lo antes posible.</p>
+                <a href="https://wa.me/34651678758?text=Hola,%20me%20interesa%20saber%20más%20sobre%20sus%20servicios" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>Nuestra Galería</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="Captura de pantalla 2025-10-22 155109.png" alt="Trabajo de peluquería 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="Captura de pantalla 2025-10-22 155137.png" alt="Trabajo de peluquería 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="Captura de pantalla 2025-10-22 155206.png" alt="Trabajo de peluquería 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="Captura de pantalla 2025-10-22 155228.png" alt="Trabajo de peluquería 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horario -->
+    <section class="hours" id="hours">
+        <div class="container">
+            <h2>Horario de Atención</h2>
+            <div class="hours-container">
+                <ul class="hours-list">
+                    <li>
+                        <span class="day">Lunes</span>
+                        <span class="time">9:30 - 20:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Martes</span>
+                        <span class="time">9:30 - 20:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Miércoles</span>
+                        <span class="time">9:30 - 20:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Jueves</span>
+                        <span class="time">9:30 - 20:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Viernes</span>
+                        <span class="time">9:30 - 20:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Sábado</span>
+                        <span class="time">9:30 - 19:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Domingo</span>
+                        <span class="time">Cerrado</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section class="location" id="location">
+        <div class="container">
+            <h2>Ubicación</h2>
+            <div class="location-container">
+                <div class="location-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Carrer de Josep M Folch i Torres, 6, 43480 Vila-seca, Tarragona</p>
+                    <p><i class="fas fa-phone"></i> 651 678 758</p>
+                    <p><i class="fas fa-envelope"></i> info@peluqueriabyjorge.com</p>
+                    <p>Estamos ubicados en el corazón de Vila-seca, con fácil acceso y parking disponible cerca. Ven a visitarnos y descubre por qué somos la peluquería y barbería de referencia en la zona.</p>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.113370557392!2d2.102766415424017!3d41.349889779267645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDIwJzU5LjYiTiAywrAwNicxMC4xIkU!5e0!3m2!1ses!2ses!4v1620000000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Peluquería y Barbería</h3>
+                    <p>Tu estilo, nuestra pasión. Servicios profesionales de peluquería y barbería en Vila-seca.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <a href="#home">Inicio</a>
+                    <a href="#about">Sobre Nosotros</a>
+                    <a href="#reservations">Reservas</a>
+                    <a href="#contact">Contacto</a>
+                    <a href="#gallery">Galería</a>
+                    <a href="#hours">Horario</a>
+                    <a href="#location">Ubicación</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Carrer de Josep M Folch i Torres, 6</p>
+                    <p>43480 Vila-seca, Tarragona</p>
+                    <p><i class="fas fa-phone"></i> 651 678 758</p>
+                    <p><i class="fas fa-envelope"></i> info@peluqueriabyjorge.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Peluquería y Barbería by jorgequiromasajista. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navegación sticky
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Menú hamburguesa
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Formulario de reserva
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu reserva! Te contactaremos pronto para confirmar tu cita.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
