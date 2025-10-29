@@ -33,6 +33,14 @@
 
         section {
             padding: 80px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         h2 {
@@ -41,6 +49,7 @@
             text-align: center;
             color: #222;
             position: relative;
+            transition: all 0.5s ease;
         }
 
         h2::after {
@@ -50,6 +59,7 @@
             height: 3px;
             background: #d4af37;
             margin: 10px auto;
+            transition: all 0.5s ease;
         }
 
         /* Header y Navegación - MÁS COMPACTO */
@@ -72,15 +82,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0; /* Reducido de 20px */
+            padding: 10px 0;
+            transition: all 0.3s ease;
         }
 
         .logo {
             color: #fff;
-            font-size: 1.3rem; /* Reducido de 1.8rem */
+            font-size: 1.3rem;
             font-weight: 700;
             text-decoration: none;
             line-height: 1.2;
+            transition: all 0.3s ease;
         }
 
         .logo span {
@@ -90,29 +102,48 @@
         .nav-links {
             display: flex;
             list-style: none;
+            transition: all 0.3s ease;
         }
 
         .nav-links li {
-            margin-left: 25px; /* Reducido de 30px */
+            margin-left: 25px;
+            transition: all 0.3s ease;
         }
 
         .nav-links a {
             color: #fff;
             text-decoration: none;
-            font-size: 0.9rem; /* Reducido de 1rem */
+            font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #d4af37;
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
             color: #d4af37;
         }
 
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         .hamburger {
             display: none;
             cursor: pointer;
             color: #fff;
-            font-size: 1.3rem; /* Reducido de 1.5rem */
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
         }
 
         /* Hero Section */
@@ -124,6 +155,16 @@
             justify-content: center;
             text-align: center;
             color: #fff;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-content {
@@ -135,11 +176,21 @@
             font-size: 3.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease 0.5s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 30px;
+            animation: fadeIn 1s ease 0.7s forwards;
+            opacity: 0;
         }
 
         .btn {
@@ -153,11 +204,31 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            animation: fadeIn 1s ease 0.9s forwards;
+            opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn:hover {
             background-color: #b8941f;
             transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         /* Sobre Nosotros */
@@ -169,6 +240,7 @@
             display: flex;
             align-items: center;
             gap: 40px;
+            transition: all 0.5s ease;
         }
 
         .about-text {
@@ -179,7 +251,8 @@
         .about-text p {
             margin-bottom: 20px;
             font-size: 1.1rem;
-            text-align: center; /* Texto centrado */
+            text-align: center;
+            transition: all 0.5s ease;
         }
 
         /* Carrusel de servicios */
@@ -191,6 +264,7 @@
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
         }
 
         .carousel-track {
@@ -203,21 +277,25 @@
             padding: 40px 20px;
             background-color: #f9f9f9;
             text-align: center;
+            transition: all 0.5s ease;
         }
 
         .service-slide i {
             font-size: 2.5rem;
             color: #d4af37;
             margin-bottom: 15px;
+            transition: all 0.5s ease;
         }
 
         .service-slide h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
+            transition: all 0.5s ease;
         }
 
         .service-slide p {
-            text-align: center; /* Texto centrado */
+            text-align: center;
+            transition: all 0.5s ease;
         }
 
         /* Reservas */
@@ -245,10 +323,12 @@
         .service-tab.active {
             background-color: #d4af37;
             color: #fff;
+            transform: scale(1.05);
         }
 
         .service-tab:hover:not(.active) {
             background-color: #f5f5f5;
+            transform: translateY(-3px);
         }
 
         .reservation-form {
@@ -258,16 +338,19 @@
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s ease;
         }
 
         .form-group {
             margin-bottom: 20px;
+            transition: all 0.3s ease;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .form-control {
@@ -276,12 +359,14 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 1rem;
-            transition: border 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .form-control:focus {
             border-color: #d4af37;
             outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
         }
 
         /* Contacto */
@@ -298,6 +383,7 @@
         .contact p {
             margin-bottom: 30px;
             font-size: 1.1rem;
+            transition: all 0.5s ease;
         }
 
         .whatsapp-btn {
@@ -312,6 +398,23 @@
             font-size: 1.2rem;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .whatsapp-btn:hover::before {
+            left: 100%;
         }
 
         .whatsapp-btn:hover {
@@ -323,6 +426,7 @@
         .whatsapp-btn i {
             font-size: 1.5rem;
             margin-right: 10px;
+            transition: all 0.3s ease;
         }
 
         /* Galería */
@@ -342,6 +446,12 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             height: 300px;
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
         .gallery-item img {
@@ -367,6 +477,7 @@
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s ease;
         }
 
         .hours-list {
@@ -378,6 +489,12 @@
             justify-content: space-between;
             padding: 15px 0;
             border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .hours-list li:hover {
+            background-color: #f9f9f9;
+            padding-left: 10px;
         }
 
         .hours-list li:last-child {
@@ -407,12 +524,14 @@
         .location-info p {
             margin-bottom: 15px;
             font-size: 1.1rem;
+            transition: all 0.3s ease;
         }
 
         .location-info i {
             color: #d4af37;
             margin-right: 10px;
             width: 20px;
+            transition: all 0.3s ease;
         }
 
         .map {
@@ -422,6 +541,12 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .map:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
         .map iframe {
@@ -448,12 +573,14 @@
         .footer-column {
             flex: 1;
             min-width: 250px;
+            transition: all 0.5s ease;
         }
 
         .footer-column h3 {
             font-size: 1.3rem;
             margin-bottom: 20px;
             color: #d4af37;
+            transition: all 0.3s ease;
         }
 
         .footer-column p, .footer-column a {
@@ -461,11 +588,12 @@
             margin-bottom: 10px;
             display: block;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .footer-column a:hover {
             color: #d4af37;
+            transform: translateX(5px);
         }
 
         .social-links {
@@ -496,6 +624,7 @@
             border-top: 1px solid #333;
             color: #bbb;
             font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
         /* Responsive */
@@ -512,17 +641,17 @@
             }
             
             nav {
-                padding: 8px 0; /* Más compacto */
+                padding: 8px 0;
             }
             
             .logo {
-                font-size: 0.9rem; /* Letra más pequeña y uniforme en móvil */
+                font-size: 0.9rem;
                 line-height: 1.1;
             }
 
             .nav-links {
                 position: fixed;
-                top: 46px; /* Ajustado por el header más compacto */
+                top: 46px;
                 left: -100%;
                 width: 100%;
                 height: calc(100vh - 46px);
@@ -544,46 +673,54 @@
 
             .hamburger {
                 display: block;
-                font-size: 1.1rem; /* Más pequeño en móvil */
+                font-size: 1.1rem;
             }
 
             .hero h1 {
-                font-size: 2rem; /* Más pequeño en móvil */
+                font-size: 2rem;
             }
 
             .hero p {
-                font-size: 1rem; /* Más pequeño en móvil */
+                font-size: 1rem;
             }
 
             h2 {
-                font-size: 1.8rem; /* Más pequeño en móvil */
+                font-size: 1.8rem;
             }
 
-            /* Sobre Nosotros más compacto en móvil */
+            /* Sobre Nosotros más compacto y adaptable en móvil */
             .about {
-                padding: 40px 0; /* Reducido de 80px */
+                padding: 40px 0;
+                transform: none !important;
+                opacity: 1 !important;
             }
             
             .about-text p {
-                font-size: 1rem; /* Texto más pequeño */
-                margin-bottom: 15px; /* Menos espacio entre párrafos */
-                line-height: 1.5; /* Mejor legibilidad */
+                font-size: 1rem;
+                margin-bottom: 15px;
+                line-height: 1.5;
+                text-align: center;
             }
             
             .services-carousel {
-                margin: 20px auto 0; /* Menos margen superior */
+                margin: 20px auto 0;
+                max-width: 100%;
             }
             
             .service-slide {
-                padding: 25px 15px; /* Menos padding interno */
+                padding: 25px 15px;
             }
             
             .service-slide i {
-                font-size: 2rem; /* Iconos más pequeños */
+                font-size: 2rem;
             }
             
             .service-slide h3 {
-                font-size: 1.3rem; /* Títulos más pequeños */
+                font-size: 1.3rem;
+            }
+            
+            .service-slide p {
+                font-size: 0.9rem;
             }
 
             .service-selector {
@@ -603,13 +740,24 @@
             
             /* Ajustes generales para móvil */
             section {
-                padding: 50px 0; /* Reducido de 80px */
+                padding: 50px 0;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+            
+            /* Eliminar algunas transiciones en móvil para mejor rendimiento */
+            .gallery-item, .map, .hours-container, .reservation-form {
+                transition: none;
+            }
+            
+            .gallery-item:hover, .map:hover {
+                transform: none;
             }
         }
         
         @media (max-width: 480px) {
             .logo {
-                font-size: 0.85rem; /* Aún más pequeño en móviles muy pequeños */
+                font-size: 0.85rem;
             }
             
             .hero h1 {
@@ -626,6 +774,10 @@
             
             .about-text p {
                 font-size: 0.95rem;
+            }
+            
+            .service-slide {
+                padding: 20px 10px;
             }
         }
     </style>
@@ -866,7 +1018,7 @@
                     </li>
                     <li>
                         <span class="day">Domingo</span>
-                        <span class="time">9:00 - 21:00</span>
+                        <span class="time">Cerrado</span>
                     </li>
                 </ul>
             </div>
@@ -1020,6 +1172,26 @@
                 let nextSlide = (currentSlide + 1) % slideCount;
                 goToSlide(nextSlide);
             }, 3000);
+        });
+
+        // Animación de secciones al hacer scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observar todas las secciones excepto el hero
+        document.querySelectorAll('section:not(.hero)').forEach(section => {
+            observer.observe(section);
         });
     </script>
 </body>
