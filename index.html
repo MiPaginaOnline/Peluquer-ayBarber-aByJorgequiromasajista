@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peluquería y Barbería by Martina Wellness</title>
+    <title>Peluquería, Barbería y Estética by Martina Wellness</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Estilos generales */
@@ -516,16 +516,16 @@
             }
             
             .logo {
-                font-size: 1rem; /* Letra más pequeña en móvil */
+                font-size: 0.9rem; /* Letra más pequeña y uniforme en móvil */
                 line-height: 1.1;
             }
 
             .nav-links {
                 position: fixed;
-                top: 50px; /* Ajustado por el header más compacto */
+                top: 46px; /* Ajustado por el header más compacto */
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 50px);
+                height: calc(100vh - 46px);
                 background-color: #111;
                 flex-direction: column;
                 align-items: center;
@@ -548,7 +548,7 @@
             }
 
             .hero h1 {
-                font-size: 2.2rem; /* Más pequeño en móvil */
+                font-size: 2rem; /* Más pequeño en móvil */
             }
 
             .hero p {
@@ -557,6 +557,33 @@
 
             h2 {
                 font-size: 1.8rem; /* Más pequeño en móvil */
+            }
+
+            /* Sobre Nosotros más compacto en móvil */
+            .about {
+                padding: 40px 0; /* Reducido de 80px */
+            }
+            
+            .about-text p {
+                font-size: 1rem; /* Texto más pequeño */
+                margin-bottom: 15px; /* Menos espacio entre párrafos */
+                line-height: 1.5; /* Mejor legibilidad */
+            }
+            
+            .services-carousel {
+                margin: 20px auto 0; /* Menos margen superior */
+            }
+            
+            .service-slide {
+                padding: 25px 15px; /* Menos padding interno */
+            }
+            
+            .service-slide i {
+                font-size: 2rem; /* Iconos más pequeños */
+            }
+            
+            .service-slide h3 {
+                font-size: 1.3rem; /* Títulos más pequeños */
             }
 
             .service-selector {
@@ -573,19 +600,32 @@
             .reservation-form {
                 padding: 25px;
             }
+            
+            /* Ajustes generales para móvil */
+            section {
+                padding: 50px 0; /* Reducido de 80px */
+            }
         }
         
         @media (max-width: 480px) {
             .logo {
-                font-size: 0.9rem; /* Aún más pequeño en móviles muy pequeños */
+                font-size: 0.85rem; /* Aún más pequeño en móviles muy pequeños */
             }
             
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
             }
             
             h2 {
                 font-size: 1.6rem;
+            }
+            
+            .about {
+                padding: 30px 0;
+            }
+            
+            .about-text p {
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -595,7 +635,7 @@
     <header id="header">
         <div class="container">
             <nav>
-                <a href="#" class="logo">Peluquería & Barbería <span>by Martina Wellness</span><br><small>Estética Martina Wellness</small></a>
+                <a href="#" class="logo">Peluquería, Barbería y Estética <span>by Martina Wellness</span></a>
                 <ul class="nav-links">
                     <li><a href="#home">Inicio</a></li>
                     <li><a href="#about">Sobre Nosotros</a></li>
@@ -615,7 +655,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Peluquería, Barbería y Estética Martina Wellness</h1>
+            <h1>Peluquería, Barbería y Estética by Martina Wellness</h1>
             <p>Tu estilo, nuestra pasión. Servicios profesionales de peluquería, barbería y estética en Vila-seca.</p>
             <a href="#reservations" class="btn">Reserva tu cita</a>
         </div>
@@ -627,8 +667,9 @@
             <h2>Sobre Nosotros</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>En <strong>Peluquería y Barbería by Martina Wellness</strong>, nos dedicamos a realzar tu belleza natural y a brindarte un servicio excepcional. Nuestro equipo de profesionales está comprometido con ofrecerte los mejores cortes, peinados y tratamientos capilares.</p>
-                    <p>Con años de experiencia en el sector, hemos creado un espacio acogedor donde nuestros clientes pueden relajarse y disfrutar de una experiencia única. Utilizamos productos de alta calidad para garantizar resultados que superen tus expectativas.</p>
+                    <p>En <strong>Peluquería, Barbería y Estética by Martina Wellness</strong>, nos dedicamos a realzar tu belleza natural y a brindarte un servicio excepcional.</p>
+                    <p>Nuestro equipo de profesionales está comprometido con ofrecerte los mejores cortes, peinados y tratamientos capilares y estéticos.</p>
+                    <p>Con años de experiencia en el sector, hemos creado un espacio acogedor donde nuestros clientes pueden relajarse y disfrutar de una experiencia única.</p>
                     
                     <!-- Carrusel de servicios -->
                     <div class="services-carousel">
@@ -854,7 +895,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Peluquería, Barbería y Estética Martina Wellness</h3>
+                    <h3>Peluquería, Barbería y Estética by Martina Wellness</h3>
                     <p>Tu estilo, nuestra pasión. Servicios profesionales de peluquería, barbería y estética en Vila-seca.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -882,7 +923,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Peluquería, Barbería y Estética Martina Wellness. Todos los derechos reservados.</p>
+                <p>&copy; 2023 Peluquería, Barbería y Estética by Martina Wellness. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
