@@ -688,11 +688,16 @@
                 font-size: 1.8rem;
             }
 
-            /* Sobre Nosotros más compacto y adaptable en móvil */
+            /* CORRECCIÓN: Sobre Nosotros más compacto y adaptable en móvil */
             .about {
                 padding: 40px 0;
                 transform: none !important;
                 opacity: 1 !important;
+            }
+            
+            .about-text {
+                width: 100%;
+                padding: 0 10px;
             }
             
             .about-text p {
@@ -700,15 +705,23 @@
                 margin-bottom: 15px;
                 line-height: 1.5;
                 text-align: center;
+                width: 100%;
+                max-width: 100%;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
             }
             
             .services-carousel {
                 margin: 20px auto 0;
                 max-width: 100%;
+                width: 100%;
+                box-sizing: border-box;
             }
             
             .service-slide {
                 padding: 25px 15px;
+                width: 100%;
+                box-sizing: border-box;
             }
             
             .service-slide i {
@@ -721,6 +734,7 @@
             
             .service-slide p {
                 font-size: 0.9rem;
+                padding: 0 5px;
             }
 
             .service-selector {
@@ -736,6 +750,8 @@
             
             .reservation-form {
                 padding: 25px;
+                width: 100%;
+                box-sizing: border-box;
             }
             
             /* Ajustes generales para móvil */
@@ -774,10 +790,61 @@
             
             .about-text p {
                 font-size: 0.95rem;
+                padding: 0 5px;
             }
             
             .service-slide {
                 padding: 20px 10px;
+            }
+            
+            /* CORRECCIÓN: Asegurar que el carrusel se vea bien en móviles pequeños */
+            .services-carousel {
+                margin: 15px auto 0;
+                width: 100%;
+                border-radius: 8px;
+            }
+            
+            .service-slide i {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+            
+            .service-slide h3 {
+                font-size: 1.2rem;
+                margin-bottom: 8px;
+            }
+            
+            .service-slide p {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+        }
+        
+        /* CORRECCIÓN: Media query adicional para pantallas muy pequeñas */
+        @media (max-width: 360px) {
+            .about-text p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+            
+            .services-carousel {
+                margin: 10px auto 0;
+            }
+            
+            .service-slide {
+                padding: 15px 8px;
+            }
+            
+            .service-slide i {
+                font-size: 1.6rem;
+            }
+            
+            .service-slide h3 {
+                font-size: 1.1rem;
+            }
+            
+            .service-slide p {
+                font-size: 0.8rem;
             }
         }
     </style>
